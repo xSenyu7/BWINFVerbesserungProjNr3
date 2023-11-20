@@ -1,10 +1,14 @@
-﻿namespace ConsoleApp1
+﻿using ConsoleApp1.Data;
+
+namespace ConsoleApp1
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            string pfad = "../../../zauberschule0.txt";
+
+            Schule schule = new(pfad);
         }
     }
 }
