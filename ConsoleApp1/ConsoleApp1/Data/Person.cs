@@ -2,7 +2,7 @@
 
 namespace ConsoleApp1.Data
 {
-    internal class Person : IKoordinate
+    public class Person : IKoordinate
     {
         public int PositionX { get; set; }
         public int PositionY { get; set; }

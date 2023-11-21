@@ -1,5 +1,4 @@
 ﻿
-
 namespace ConsoleApp1.Services
 {
     public class KoordinatenService

@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1.Data;
+using ConsoleApp1.Logic;
 
 namespace ConsoleApp1
 {
@@ -14,6 +15,9 @@ namespace ConsoleApp1
 
             Ziel ziel = new(schule.Grundriss, schule.SchuleService.ArrLänge, schule.SchuleService.ArrBreite);
 
+            FloodFill floodfill = new(schule, person, ziel);
+
+            schule = floodfill.AuffüllenDerStockwerke();
         }
     }
 }
