@@ -38,6 +38,7 @@ namespace ConsoleApp1.Services
                     }
                     Console.WriteLine();
                     aktuelleReie++;
+                    j--;
                 }
                 Console.WriteLine();
             }
