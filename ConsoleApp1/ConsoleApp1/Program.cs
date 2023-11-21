@@ -6,7 +6,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string pfad = "../../../zauberschule0.txt";
+            string pfad = "../../../../../zauberschule0.txt";
 
             Schule schule = new(pfad);
         }

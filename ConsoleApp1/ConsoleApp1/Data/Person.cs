@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Data
 {
-    internal class Person
+    internal class Person : IKoordinate
     {
+        public int PositionX { get; set; }
+        public int PositionY { get; set; }
+        public int PositionZ { get; set; }
     }
 }

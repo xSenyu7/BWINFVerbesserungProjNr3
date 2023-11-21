@@ -2,15 +2,17 @@
 
 namespace ConsoleApp1.Data
 {
-    internal class Schule
+    public class Schule
     {
         public string[,,] Grundriss { get; set; }
 
+        public SchuleService SchuleService;
+
         public Schule(string pfad)
         {
-            SchuleService schuleService = new SchuleService();
+            SchuleService = new SchuleService();
 
-            Grundriss = schuleService.GrundrissEinlesen(pfad);
+            Grundriss = SchuleService.GrundrissEinlesen(pfad);
         }
     }
 }
