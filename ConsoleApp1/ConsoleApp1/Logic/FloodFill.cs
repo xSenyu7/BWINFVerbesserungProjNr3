@@ -28,6 +28,7 @@ namespace ConsoleApp1.Logic
                 if (!PrüfenObAmZiel())
                 {
                     FelderAuffüllen();
+                    _floodNummer++;
                 }
                 else
                 {
@@ -40,52 +41,64 @@ namespace ConsoleApp1.Logic
 
         private void FelderAuffüllen()
         {
-            foreach(IKoordinate k in KoordinatenListe)
+            int anzahlKoordinaten = KoordinatenListe.Count;
+
+            for(int i = 0; i < anzahlKoordinaten; i++)
             {
-                if (k.PositionZ == 0)
+                if (KoordinatenListe[i].PositionZ == 0)
                 {
-                    if (_schule.Grundriss[k.PositionX + 1, k.PositionY, k.PositionZ] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX + 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ] == ".")
                     {
-                        _schule.Grundriss[k.PositionX + 1, k.PositionY, k.PositionZ] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX + 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ] = _floodNummer.ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX + 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ));
                     }
-                    if (_schule.Grundriss[k.PositionX - 1, k.PositionY, k.PositionZ] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX - 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ] == ".")
                     {
-                        _schule.Grundriss[k.PositionX - 1, k.PositionY, k.PositionZ] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX - 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ] = _floodNummer.ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX - 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ));
                     }
-                    if (_schule.Grundriss[k.PositionX, k.PositionY + 1, k.PositionZ] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY + 1, KoordinatenListe[i].PositionZ] == ".")
                     {
-                        _schule.Grundriss[k.PositionX, k.PositionY + 1, k.PositionZ] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY + 1, KoordinatenListe[i].PositionZ] = _floodNummer.ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY + 1, KoordinatenListe[i].PositionZ));
                     }
-                    if (_schule.Grundriss[k.PositionX, k.PositionY - 1, k.PositionZ] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY - 1, KoordinatenListe[i].PositionZ] == ".")
                     {
-                        _schule.Grundriss[k.PositionX, k.PositionY - 1, k.PositionZ] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY - 1, KoordinatenListe[i].PositionZ] = _floodNummer.ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY - 1, KoordinatenListe[i].PositionZ));
                     }
-                    if (_schule.Grundriss[k.PositionX, k.PositionY, k.PositionZ + 1] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ + 1] == ".")
                     {
-                        _schule.Grundriss[k.PositionX, k.PositionY, k.PositionZ + 1] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ + 1] = (3 + _floodNummer).ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ + 1));
                     }
                 }
-                else if (k.PositionZ == 1)
+                else if (KoordinatenListe[i].PositionZ == 1)
                 {
-                    if (_schule.Grundriss[k.PositionX + 1, k.PositionY, k.PositionZ] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX + 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ] == ".")
                     {
-                        _schule.Grundriss[k.PositionX + 1, k.PositionY, k.PositionZ] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX + 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ] = _floodNummer.ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX + 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ));
                     }
-                    if (_schule.Grundriss[k.PositionX - 1, k.PositionY, k.PositionZ] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX - 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ] == ".")
                     {
-                        _schule.Grundriss[k.PositionX - 1, k.PositionY, k.PositionZ] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX - 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ] = _floodNummer.ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX - 1, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ));
                     }
-                    if (_schule.Grundriss[k.PositionX, k.PositionY + 1, k.PositionZ] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY + 1, KoordinatenListe[i].PositionZ] == ".")
                     {
-                        _schule.Grundriss[k.PositionX, k.PositionY + 1, k.PositionZ] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY + 1, KoordinatenListe[i].PositionZ] = _floodNummer.ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY + 1, KoordinatenListe[i].PositionZ));
                     }
-                    if (_schule.Grundriss[k.PositionX, k.PositionY - 1, k.PositionZ] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY - 1, KoordinatenListe[i].PositionZ] == ".")
                     {
-                        _schule.Grundriss[k.PositionX, k.PositionY - 1, k.PositionZ] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY - 1, KoordinatenListe[i].PositionZ] = _floodNummer.ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY - 1, KoordinatenListe[i].PositionZ));
                     }
-                    if (_schule.Grundriss[k.PositionX, k.PositionY, k.PositionZ - 1] == ".")
+                    if (_schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ - 1] == ".")
                     {
-                        _schule.Grundriss[k.PositionX, k.PositionY, k.PositionZ - 1] = _floodNummer.ToString();
+                        _schule.Grundriss[KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ - 1] = (3 + _floodNummer).ToString();
+                        KoordinatenListe.Add(new Koordinate(KoordinatenListe[i].PositionX, KoordinatenListe[i].PositionY, KoordinatenListe[i].PositionZ - 1));
                     }
                 }
             }

@@ -18,6 +18,19 @@ namespace ConsoleApp1
             FloodFill floodfill = new(schule, person, ziel);
 
             schule = floodfill.AuffüllenDerStockwerke();
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < schule.SchuleService.ArrLänge; j++)
+                {
+                    for (int k = 0; k < schule.SchuleService.ArrBreite; k++)
+                    {
+                        Console.Write(schule.Grundriss[k, j, i] + " ");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
