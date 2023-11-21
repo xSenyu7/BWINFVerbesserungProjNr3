@@ -19,20 +19,13 @@ namespace ConsoleApp1
 
             schule = floodfill.AuffüllenDerStockwerke();
 
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < schule.SchuleService.ArrLänge; j++)
-                {
-                    for (int k = 0; k < schule.SchuleService.ArrBreite; k++)
-                    {
-                        Console.Write(schule.Grundriss[k, j, i] + " ");
-                    }
-                    Console.WriteLine();
-                }
-                Console.WriteLine();
-            }
+            LaufAlgorithmus laufAlgorithmus = new(schule, person);
 
-            LaufAlgorithmus laufAlgorithmus = new();
+            schule = laufAlgorithmus.SchnellstenWegFinden();
+
+
+            schule.SchuleService.WriteSchule(schule.Grundriss);
+
         }
     }
 }

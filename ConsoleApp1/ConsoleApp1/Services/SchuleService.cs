@@ -1,4 +1,5 @@
 ﻿
+
 namespace ConsoleApp1.Services
 {
     public class SchuleService
@@ -30,15 +31,12 @@ namespace ConsoleApp1.Services
                         for (int k = 0; k < spalten; k++)
                         {
                             grundriss[k, j, i] = Convert.ToString(reie[k]);
-                            Console.Write(grundriss[k,j,i]);
                         }
                     }
-                    Console.WriteLine();
                     aktuelleReie++;
                     if (reie.Length == 0)
                         j--;
                 }
-                Console.WriteLine();
             }
 
             return grundriss;
@@ -76,6 +74,36 @@ namespace ConsoleApp1.Services
             ArrBreite = Convert.ToInt32(arrBreite);
 
             aktuelleReie++;
+        }
+
+        public void WriteSchule(string[,,] schule)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < ArrLänge; j++)
+                {
+                    for (int k = 0; k < ArrBreite; k++)
+                    {
+                        if (bla(schule[k,j,i]))
+                        schule[k, j, i] = ".";
+
+                        Console.Write(schule[k,j,i] + " ");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
+        }
+
+        private bool bla(string s)
+        {
+            try
+            {
+                Convert.ToInt32(s);
+                return true;
+            }
+            catch { }
+            return false;
         }
     }
 }

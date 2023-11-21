@@ -15,7 +15,7 @@ namespace ConsoleApp1.Services
                     {
                         if (grundriss[k,j,i] == gesuchterString)
                         {
-                            Console.WriteLine("Position von " + gesuchterString + " ist: " + k);
+                            Console.WriteLine("PositionX von " + gesuchterString + " ist: " + k);
                             return k;
                         }
                     }
@@ -34,7 +34,7 @@ namespace ConsoleApp1.Services
                     {
                         if (grundriss[k, j, i] == gesuchterString)
                         {
-                            Console.WriteLine("Position von " + gesuchterString + " ist: " + j);
+                            Console.WriteLine("PositionY von " + gesuchterString + " ist: " + j);
                             return j;
                         }
                     }
@@ -53,7 +53,7 @@ namespace ConsoleApp1.Services
                     {
                         if (grundriss[k, j, i] == gesuchterString)
                         {
-                            Console.WriteLine("Position von " + gesuchterString + " ist: " + i);
+                            Console.WriteLine("PositionZ von " + gesuchterString + " ist: " + i);
                             return i;
                         }
                     }
