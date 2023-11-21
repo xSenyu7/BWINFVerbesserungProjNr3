@@ -9,6 +9,11 @@ namespace ConsoleApp1
             string pfad = "../../../../../zauberschule0.txt";
 
             Schule schule = new(pfad);
+
+            Person person = new(schule.Grundriss, schule.SchuleService.ArrLänge, schule.SchuleService.ArrBreite);
+
+            Ziel ziel = new(schule.Grundriss, schule.SchuleService.ArrLänge, schule.SchuleService.ArrBreite);
+
         }
     }
 }

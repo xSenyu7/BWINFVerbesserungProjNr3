@@ -1,7 +1,4 @@
 ﻿
-
-using System.Globalization;
-
 namespace ConsoleApp1.Services
 {
     public class SchuleService
@@ -38,7 +35,8 @@ namespace ConsoleApp1.Services
                     }
                     Console.WriteLine();
                     aktuelleReie++;
-                    j--;
+                    if (reie.Length == 0)
+                        j--;
                 }
                 Console.WriteLine();
             }
