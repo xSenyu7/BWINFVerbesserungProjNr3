@@ -31,6 +31,8 @@ namespace ConsoleApp1
                 }
                 Console.WriteLine();
             }
+
+            LaufAlgorithmus laufAlgorithmus = new();
         }
     }
 }
